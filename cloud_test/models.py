@@ -29,7 +29,7 @@ class Room(models.Model):
 class Customer(models.Model):
     id = models.AutoField(primary_key=True)
     fName = models.CharField(max_length=60)
-    lName = models.CharField(max_length=60)
+    lName = models.CharField(max_length=50)
     username = models.CharField(max_length=60)
     Password = models.CharField(max_length=60)
     dp = models.ImageField()
