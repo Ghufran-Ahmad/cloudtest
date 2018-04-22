@@ -13,7 +13,7 @@ class Types(models.Model):
     pool = models.BooleanField()
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class Room(models.Model):
@@ -23,7 +23,7 @@ class Room(models.Model):
     typeid = models.ForeignKey(Types, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class Customer(models.Model):
@@ -35,6 +35,6 @@ class Customer(models.Model):
     dp = models.ImageField()
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 

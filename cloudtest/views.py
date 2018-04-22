@@ -16,3 +16,27 @@ def room(request):
 
     }
     return HttpResponse(template.render(context, request))
+
+
+def introduction(request):
+    template = loader.get_template('introduction.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def gallery(request):
+    template = loader.get_template('gallery.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
+
+def contact(request):
+    template = loader.get_template('contact.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
