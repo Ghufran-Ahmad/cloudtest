@@ -5,8 +5,8 @@ from django.db import models
 
 class Types(models.Model):
     id = models.AutoField(primary_key=True)
-    name = models.CharField()
-    bedSize = models.CharField()
+    name = models.CharField(max_length=60)
+    bedSize = models.CharField(max_length=60)
     wifi = models.BooleanField()
     roomService = models.BooleanField()
     breakfast = models.BooleanField()
@@ -28,10 +28,10 @@ class Room(models.Model):
 
 class Customer(models.Model):
     id = models.AutoField(primary_key=True)
-    fName = models.CharField()
-    lName = models.CharField()
-    username = models.CharField()
-    Password = models.CharField()
+    fName = models.CharField(max_length=60)
+    lName = models.CharField(max_length=60)
+    username = models.CharField(max_length=60)
+    Password = models.CharField(max_length=60)
     dp = models.ImageField()
 
     def __str__(self):
