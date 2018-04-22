@@ -8,3 +8,11 @@ def home(request):
 
     }
     return HttpResponse(template.render(context, request))
+
+
+def room(request):
+    template = loader.get_template('rooms-tariff.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
