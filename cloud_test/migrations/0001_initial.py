@@ -23,6 +23,7 @@ class Migration(migrations.Migration):
                 ('dp', models.ImageField(upload_to='')),
             ],
         ),
+
         migrations.CreateModel(
             name='Room',
             fields=[
