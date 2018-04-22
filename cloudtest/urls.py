@@ -21,6 +21,6 @@ from cloudtest import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
-    url(r'^rooms-tariff/', views.room, name='room-tariff'),
+    url(r'^rooms-tariff.html/', views.room, name='room-tariff'),
 
 ]
