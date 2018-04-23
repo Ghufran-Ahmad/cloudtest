@@ -1,6 +1,7 @@
 <component name="ProjectDictionaryState">
   <dictionary name="ghufr">
     <words>
+      <w>cloudinary</w>
       <w>cloudtest</w>
       <w>gunicorn</w>
       <w>pytz</w>

@@ -1,6 +1,10 @@
+from cloudinary.models import CloudinaryField
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Types(models.Model):
@@ -27,12 +31,17 @@ class Room(models.Model):
 
 
 class Customer(models.Model):
-    id = models.AutoField(primary_key=True)
-    fName = models.CharField(max_length=60)
-    lName = models.CharField(max_length=50)
-    username = models.CharField(max_length=60)
-    Password = models.CharField(max_length=60)
-    dp = models.ImageField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    dp = CloudinaryField('display picture', blank=True)
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Customer.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.Customer.save()
 
     def __str__(self):
         return str(self.id)

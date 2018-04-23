@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import dj_database_url
+import cloudinary
 from django.conf.global_settings import DATABASES
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloud_test',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +131,9 @@ MIDDLEWARE_CLASSES = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+cloudinary.config(
+    cloud_name="cloudapp",
+    api_key="599542576515737",
+    api_secret="tghmSV2NNvetNchyPYzTIias60Q"
+
+)
