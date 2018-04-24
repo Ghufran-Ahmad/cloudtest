@@ -11,7 +11,8 @@
 
 <body>
     {% block content %}
-  <div id="login-box">
+  <form class="form" method="post" id="signupform">
+        <div id="login-box">
   <div class="left">
     <h1>Sign up</h1>
     {% csrf_token %}
@@ -32,7 +33,7 @@
   </div>
   <div class="or">OR</div>
 </div>
-
+</form>
 
 {% endblock %}
 </body>
