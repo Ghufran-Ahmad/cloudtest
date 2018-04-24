@@ -64,7 +64,7 @@ def signup(request):
 
         return HttpResponse(template.render(context, request))
     if request.method == "POST":
-        name = request.POST['name']
+        name = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         username = name
