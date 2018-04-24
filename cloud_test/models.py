@@ -30,14 +30,14 @@ class Room(models.Model):
         return str(self.id)
 
 
-class Customer(models.Model):
+class profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     dp = CloudinaryField('display picture', blank=True)
 
     @receiver(post_save, sender=User)
     def create_or_update_user_profile(sender, instance, created, **kwargs):
         if created:
-            Customer.objects.create(user=instance)
+            profile.objects.create(user=instance)
         instance.profile.save()
 
     def __str__(self):
