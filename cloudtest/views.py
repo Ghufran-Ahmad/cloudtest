@@ -1,7 +1,10 @@
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from  django.shortcuts import render
 from django.template import loader
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
 
 def home(request):
     template = loader.get_template('home.html')
@@ -53,8 +56,33 @@ def login(request):
 
 
 def signup(request):
-    template = loader.get_template('signup.html')
-    context = {
+    if request.method == "GET":
+        template = loader.get_template('signup.html')
+        context = {
 
-    }
-    return HttpResponse(template.render(context, request))
+        }
+
+        return HttpResponse(template.render(context, request))
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        password = request.POST['password']
+        username = name
+
+        firstname = name.strip().split(' ')[0]
+        lastname = ' '.join((name + ' ').split(' ')[1:]).strip()
+
+        if username and password:
+            user, created = User.objects.get_or_create(username=username, email=email, first_name=firstname,
+                                                       last_name=lastname)
+
+            if created:
+                user.set_password(password)
+                user.save()
+
+            user = authenticate(username=username, password=password)
+            login(request, user)
+
+            return render(request, 'home.html')
+    else:
+        return render(request, 'signup.html')
