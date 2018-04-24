@@ -26,6 +26,6 @@ urlpatterns = [
     url(r'^introduction', views.introduction, name='introduction'),
     url(r'^gallery', views.gallery, name='gallery'),
     url(r'^contact', views.contact, name='contact'),
-    url(r'^login', views.login, name='login'),
+    url(r'^login', views.loginp, name='login'),
     url(r'^signup', views.signup, name='signup'),
 ]
