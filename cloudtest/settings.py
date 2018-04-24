@@ -137,3 +137,5 @@ cloudinary.config(
     api_secret="tghmSV2NNvetNchyPYzTIias60Q"
 
 )
+
+LOGIN_REDIRECT_URL = 'login.html '

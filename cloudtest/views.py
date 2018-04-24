@@ -93,8 +93,3 @@ def signup(request):
             return render(request, 'home.html')
     else:
         return render(request, 'signup.html')
-
-
-    def Logout(request):
-        logout(request)
-        return render(request, 'login.html')

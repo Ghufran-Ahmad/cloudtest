@@ -14,9 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import logout
 from django.urls import path
 from django.conf.urls import url
-from cloudtest import views
+from cloudtest import views, settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,5 +29,5 @@ urlpatterns = [
     url(r'^contact', views.contact, name='contact'),
     url(r'^login', views.loginp, name='login'),
     url(r'^signup', views.signup, name='signup'),
-    url(r'^logout', views.Logout)
+    url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout')
 ]
