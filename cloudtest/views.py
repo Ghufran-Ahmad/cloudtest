@@ -48,11 +48,18 @@ def contact(request):
 
 def loginp(request):
     if request.method == 'POST':
-        form = AuthenticationForm()
+        username = request.POST['username']
+        password = request.POST['password']
 
+        user = authenticate(username=username, password=password)
+
+        if user is None:
+            return render(request, 'login.html')
+        else:
+            login(request, user)
+            return render(request, 'index.html')
     else:
-        form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})
+        return render(request, 'login.html')
 
 
 def signup(request):
