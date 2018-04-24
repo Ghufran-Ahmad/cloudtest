@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -93,3 +93,8 @@ def signup(request):
             return render(request, 'home.html')
     else:
         return render(request, 'signup.html')
+
+
+    def Logout(request):
+        logout(request)
+        return render(request, 'login.html')
