@@ -57,7 +57,7 @@ def loginp(request):
             return render(request, 'login.html')
         else:
             login(request, user)
-            return render(request, 'index.html')
+            return render(request, 'home.html')
     else:
         return render(request, 'login.html')
 
