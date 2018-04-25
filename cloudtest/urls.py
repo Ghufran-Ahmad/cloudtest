@@ -29,5 +29,5 @@ urlpatterns = [
     url(r'^contact', views.contact, name='contact'),
     url(r'^login', views.loginp, name='login'),
     url(r'^signup', views.signup, name='signup'),
-    url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout')
+    url(r'^logout/$', logout, {'next_page': '/login'}, name='logout'),
 ]

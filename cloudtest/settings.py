@@ -138,4 +138,3 @@ cloudinary.config(
 
 )
 
-LOGOUT_REDIRECT_URL = 'login.html '
