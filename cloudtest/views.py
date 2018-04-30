@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login
@@ -37,6 +37,27 @@ def gallery(request):
 
     }
     return HttpResponse(template.render(context, request))
+
+
+def profile(request):
+    if request.method == 'POST':
+        user = request.user
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        password = request.POST['password']
+        image = request.FILES.get('image')
+        if image is not None:
+            user.profile.display_picture = image
+        if password is not None and password !="":
+            user.set_password(password)
+        user.first_name = first_name
+        user.last_name = last_name
+        user.email = email
+        user.save()
+        return redirect('profile')
+    if request.method == 'GET':
+        return render('profile.html')
 
 
 def contact(request):
