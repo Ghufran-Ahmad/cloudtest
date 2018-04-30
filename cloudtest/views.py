@@ -57,7 +57,7 @@ def profile(request):
         user.save()
         return redirect('profile')
     if request.method == 'GET':
-        return render('profile.html')
+        return render(request, 'profile.html')
 
 
 def contact(request):
