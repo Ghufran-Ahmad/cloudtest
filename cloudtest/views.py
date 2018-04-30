@@ -49,13 +49,13 @@ def profile(request):
         image = request.FILES.get('image')
         if image is not None:
             user.profile.display_picture = image
-        if password is not None and password !="":
+        if password is not None and password != "":
             user.set_password(password)
         user.first_name = first_name
         user.last_name = last_name
         user.email = email
-        user.save()
-        return redirect('profile')
+        user.profile.save()
+        return render(request, 'profile.html')
     if request.method == 'GET':
         return render(request, 'profile.html')
 
