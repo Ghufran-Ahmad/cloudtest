@@ -23,6 +23,14 @@ def room(request):
     return HttpResponse(template.render(context, request))
 
 
+def roomdet(request):
+    template = loader.get_template('room-details.html')
+    context = {
+
+    }
+    return HttpResponse(template.render(context, request))
+
+
 def introduction(request):
     template = loader.get_template('introduction.html')
     context = {
